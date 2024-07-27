@@ -84,9 +84,7 @@ docker exec -it f1tenth_gym_ros-sim-1 /bin/bash
 
 **Install the following dependencies:**
 
-If your system does not support nvidia-docker2, noVNC will have to be used to forward the display.
 - Again you'll need **Docker**. Follow the instruction from above.
-
 
 **Installing the simulation:**
 
