@@ -80,7 +80,7 @@ docker exec -it f1tenth_gym_ros-sim-1 /bin/bash
 ```
 4. In your browser, navigate to [http://localhost:8080/vnc.html](http://localhost:8080/vnc.html), you should see the noVNC logo with the connect button. Click the connect button to connect to the session.
 
-## Without an NVIDIA gpu (Latest, It is working Ubunut 22.04 and WSL):
+## Without an NVIDIA gpu and Using Docker (Latest, It is working Ubunut 22.04 and WSL):
 
 **Install the following dependencies:**
 
@@ -99,7 +99,8 @@ $ docker build -t f1tenth_gym_ros -f Dockerfile .
 3. In a separate terminal, run the following 
 ```bash
 $ xhost +local:docker  \\ if you are using WSL, don't need it. 
-
+```
+```bash
 $ docker run -it \
   --privileged \
   --env="DISPLAY" \
