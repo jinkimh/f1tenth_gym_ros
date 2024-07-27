@@ -98,7 +98,7 @@ $ docker build -t f1tenth_gym_ros -f Dockerfile .
 ```
 3. In a separate terminal, run the following 
 ```bash
-$ xhost +local:docker  - if you are using WSL, don't need it. 
+$ xhost +local:docker  \\ if you are using WSL, don't need it. 
 
 $ docker run -it \
   --privileged \
