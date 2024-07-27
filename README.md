@@ -80,6 +80,35 @@ docker exec -it f1tenth_gym_ros-sim-1 /bin/bash
 ```
 4. In your browser, navigate to [http://localhost:8080/vnc.html](http://localhost:8080/vnc.html), you should see the noVNC logo with the connect button. Click the connect button to connect to the session.
 
+## Without an NVIDIA gpu (Latest, It is working Ubunut 22.04 and WSL):
+
+**Install the following dependencies:**
+
+If your system does not support nvidia-docker2, noVNC will have to be used to forward the display.
+- Again you'll need **Docker**. Follow the instruction from above.
+- Additionally you'll need **docker-compose**. Follow the instruction [here](https://docs.docker.com/compose/install/) to install docker-compose.
+
+**Installing the simulation:**
+
+1. Clone this repo
+2. Build the docker image by:
+```bash
+$ cd f1tenth_gym_ros
+$ docker build -t f1tenth_gym_ros -f Dockerfile .
+```
+3. In a separate terminal, run the following 
+```bash
+$ xhost +local:docker // if you are using WSL, don't need it. 
+
+$ docker run -it \
+  --privileged \
+  --env="DISPLAY" \
+  --env="QT_X11_NO_MITSHM=1" \
+  --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+  --volume="YOUR_WS/f1tenth_gym_ros:/sim_ws/src/f1tenth_gym_ros"\
+  f1tenth_gym_ros:latest
+```
+
 # Launching the Simulation
 
 1. `tmux` is included in the contianer, so you can create multiple bash sessions in the same terminal.
