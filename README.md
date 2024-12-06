@@ -105,7 +105,7 @@ $ docker run -it \
   --env="DISPLAY" \
   --env="QT_X11_NO_MITSHM=1" \
   --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-  --volume="YOUR_WS/f1tenth_gym_ros:/sim_ws/src/f1tenth_gym_ros"\
+  --volume="$HOME/f1tenth_gym_ros:/sim_ws/src/f1tenth_gym_ros"\
   f1tenth_gym_ros:latest
 ```
 
